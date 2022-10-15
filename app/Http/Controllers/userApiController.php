@@ -133,4 +133,22 @@ class userApiController extends Controller
             return response()->json(['message'=>$message],202);
         }
     }
+
+    /**
+     * deleteUser function
+     * delete single user details from db table
+     * @param $request->id ;user id
+     * @return Json response with message.
+     */
+    public function deleteUser(Request $request){
+        $result=User::findOrFail($request->id)->delete();
+        if($result){
+            $message="User Delete Successfully";
+            return response()->json(['message'=>$message],200);
+        }
+        else{
+            $message="Fail";
+            return response()->json(['message'=>$message],422);
+        }
+    }
 }
