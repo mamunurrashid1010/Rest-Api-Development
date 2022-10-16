@@ -151,4 +151,18 @@ class userApiController extends Controller
             return response()->json(['message'=>$message],422);
         }
     }
+
+    /**
+     * deleteMultipleUser
+     * @param $request->ids ;user id
+     * @return Json response with message.
+     */
+    public function deleteMultipleUser(Request $request){
+            if($request->isMethod('delete')){
+                $data=$request->all();
+                User::whereIn('id',$data['ids'])->delete();
+                $message="User Delete Successfully";
+                return response()->json(['message'=>$message],200);
+            }
+    }
 }
