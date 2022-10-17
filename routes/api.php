@@ -32,3 +32,10 @@ Route::put('/updateUserDetails/{id}',[userApiController::class,'updateUserDetail
 Route::delete('/deleteUser/{id?}',[userApiController::class,'deleteUser']);
 # delete multiple user
 Route::delete('/deleteMultipleUser',[userApiController::class,'deleteMultipleUser']);
+
+
+# ------------------------ Registration & Login module--------------------------------------------
+# user registration using passport
+Route::post('/userRegistrationUsingPassport',[userApiController::class,'userRegistrationUsingPassport']);
+# login user using passport
+Route::post('/userLoginUsingPassport',[userApiController::class,'userLoginUsingPassport']);
